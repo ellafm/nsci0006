@@ -1,0 +1,890 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Lists and loops &#8212; NSCI0006 : Getting started with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/lists_and_loops';</script>
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Arrays and plots" href="arrays_and_plots.html" />
+    <link rel="prev" title="1. Fundamentals" href="fundamentals.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><h1>NSCI0006 : Getting started with Python</h1></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.ucl.ac.uk/module-catalogue/modules/mathematics-for-natural-sciences-b-NSCI0006" title="Catalogue" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-solid fa-book-open"></i></span>
+            <label class="sr-only">Catalogue</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://timetable.ucl.ac.uk/tt/moduleTimet.do?firstReq=Y&moduleId=NSCI0006&acadYearFl=N" title="Timetable" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-solid fa-calendar-days"></i></span>
+            <label class="sr-only">Timetable</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://moodle.ucl.ac.uk/course/view.php?id=34403" title="Moodle" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/moodle_original_logo_icon_146420.png" class="icon-link-image" alt="Moodle"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><h1>NSCI0006 : Getting started with Python</h1></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.ucl.ac.uk/module-catalogue/modules/mathematics-for-natural-sciences-b-NSCI0006" title="Catalogue" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-solid fa-book-open"></i></span>
+            <label class="sr-only">Catalogue</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://timetable.ucl.ac.uk/tt/moduleTimet.do?firstReq=Y&moduleId=NSCI0006&acadYearFl=N" title="Timetable" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-solid fa-calendar-days"></i></span>
+            <label class="sr-only">Timetable</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://moodle.ucl.ac.uk/course/view.php?id=34403" title="Moodle" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/moodle_original_logo_icon_146420.png" class="icon-link-image" alt="Moodle"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo-light.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo-dark.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cocalc.html">Using CoCalc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Function glossary</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Using Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fundamentals.html">1. Fundamentals</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Lists and loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arrays_and_plots.html">3. Arrays and plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_data.html">4. Working with data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iterative_methods.html">5. Iterative methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function_definition.html">6. Function definition</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="numeric_calculus.html">7. Numeric calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curve_fitting.html">8. Curve fitting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lists and loops</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> On this page </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-lists">2.1. Working with lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">2.2. <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-range-function">2.3. The range function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-ranges">2.4. index ranges</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lists-and-loops">
+<span id="listch"></span><h1><span class="section-number">2. </span>Lists and loops<a class="headerlink" href="#lists-and-loops" title="Permalink to this heading">#</a></h1>
+<p>After completing this chapter you should be able to:</p>
+<ul class="simple">
+<li><p>Create a list use indexing to identify list elements</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">range</span></code> function to create a control sequence</p></li>
+<li><p>Use a basic <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to apply an iterative definition</p></li>
+</ul>
+<section id="working-with-lists">
+<h2><span class="section-number">2.1. </span>Working with lists<a class="headerlink" href="#working-with-lists" title="Permalink to this heading">#</a></h2>
+<p>Python lists are used to store multiple items in a single variable. We can create a list using square brackets as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3, 5, 7, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mathematical operations on a list are not allowed and so the following expression fails. The helpful error message that you get if you run this says that we cannot subtract an integer from a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">-</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span><span class="o">-</span><span class="mi">2</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for -: &#39;list&#39; and &#39;int&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The following operations have interesting non-mathematical results. Try them out and see if you can understand their meaning.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="solution dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">+</span></code> operands on list objects results in concatenation (joining the lists together).</p>
+</div>
+<hr class="docutils" />
+<h4>Indexing</h4>
+<p>You can retrieve individual values from a list by using the “index”, which refers to their position in the list. In Python indexing starts from 0, so the following values represent the first and third values in the list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1">#this gives the first value in list x  </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1">#this gives the third value in list x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+7
+</pre></div>
+</div>
+</div>
+</div>
+<p>A negative index can be used to work backwards from the end of the list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#this gives the last value in list x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="c1">#this gives the second=to-last value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+7
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that since <code class="docutils literal notranslate"><span class="pre">-0</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result <code class="docutils literal notranslate"><span class="pre">x[-0]</span></code> gives the first element in the list.</p>
+<div class="exercise admonition" id="files/lists_and_loops-exercise-0">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2.1 </span></p>
+<section id="exercise-content">
+<p>Define the list of numerical values represting the day,month,year of today’s date and use indexing to print the year value</p>
+</section>
+</div>
+<div class="solution dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dvals</span><span class="o">=</span><span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2023</span><span class="p">]</span>  <span class="c1">#13th October 2023</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dvals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    <span class="c1">#print the last value in the list</span>
+</pre></div>
+</div>
+<p>Here is a fancier approach that uses the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> library to obtain the current date from your opoerating system. We will learn how to use libraries later:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">dvals</span><span class="o">=</span><span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">year</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="for-loops">
+<span id="sec-floop"></span><h2><span class="section-number">2.2. </span><code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h2>
+<p>We can can perform operations on each element in a list sequentially, such as calculating the square of each value. Here, each square will be printed on a new line:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>     <span class="c1">#for each object n in the list</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>   <span class="c1">#print the square of n</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+25
+49
+81
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is an example of a “for loop”. The first line defines an iterative sequence, which in this case is the sequence of values in list <code class="docutils literal notranslate"><span class="pre">x</span></code>. The following indented lines are statements that are to be repeated for each iteration.</p>
+<p>The syntax here is important. The colon appearing at the end of the first line is required, and the lines that are to be carried out sequentially must be indented. Anything that is not indented is executed after the loop has finished.</p>
+<hr class="docutils" />
+<h4>Summation example</h4>
+<p>The following code can be used to sum the elements in the array <code class="docutils literal notranslate"><span class="pre">x</span></code> by updating variable <code class="docutils literal notranslate"><span class="pre">T</span></code> within a loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">=</span><span class="mi">0</span>           <span class="c1">#to record the total</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>   <span class="c1">#for each object n in the list</span>
+  <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="o">+</span><span class="n">n</span>       <span class="c1">#add to the total</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>      <span class="c1">#print the total</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-range-function">
+<span id="sec-rg"></span><h2><span class="section-number">2.3. </span>The range function<a class="headerlink" href="#the-range-function" title="Permalink to this heading">#</a></h2>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">range(stop)</span></code> to iterate over a sequence of integers, starting from zero. The stop value is not included in the list. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="files/lists_and_loops-exercise-1">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2.2 </span></p>
+<section id="exercise-content">
+<p>Complete the code below to find the sum of the first 100 cube numbers: 1+8+27+…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>s=0
+for n in range(100):
+  s=s + ??             #replace ?? with your code
+print(s)
+</pre></div>
+</div>
+</section>
+</div>
+<div class="solution dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+  <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>         <span class="c1">#(0+1)^3+(1+1)^3+...+(99+1)^3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<h4>Custom range</h4>
+<p>We can adjust the <code class="docutils literal notranslate"><span class="pre">range</span></code> function syntax slightly to obtain different results:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range(start,stop)</span></code> defines a different start value instead of zero, which is included in the list. For example, to print the numbers 1,2,3,4,5 :</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range(start,stop,step)</span></code> defines a non-unit step, which must be an integer. For example, to print a list of odd numbers 1,3,5,7,9 :</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="exercise admonition" id="files/lists_and_loops-exercise-2">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2.3 </span></p>
+<section id="exercise-content">
+<p>Find the sum of the first 100 odd numbers.</p>
+</section>
+</div>
+<div class="solution dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Here are two possible solutions, both of which employ the fact that odd numbers have the form <span class="math notranslate nohighlight">\((2n+1)\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is a non-negative integer</p>
+<p><strong>Method 1</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+  <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Method 2</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+  <span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="n">n</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<h4>Advanced example</h4>
+<p>In the code below the operations are repeated ten times. Can you work out what the code does? The code involves the introduction of a temporary variable, which has been called <code class="docutils literal notranslate"><span class="pre">temp</span></code>. Why do you think it is needed?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">temp</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="n">y</span>
+  <span class="n">x</span><span class="o">=</span><span class="n">y</span>
+  <span class="n">y</span><span class="o">=</span><span class="n">temp</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+</pre></div>
+</div>
+</div>
+</div>
+<div class="solution dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The code generates a sequence of values in which each successive number is the sum of the previous two. The sequence is started with the numbers 1,1. This is called the <em>Fibonacci sequence</em>.</p>
+<p>A temporary variable is introduced because of the sequential way that operations are carried out. Consider, for example if x=1 and y=2:</p>
+<p>In the next step we want to obtain x=2 and y=(1+2)=3. However, if we begin by replacing x with the statement x=y then we obtain the result x=2,y=2 and we can no longer carry out the addition operation to obtain the value that should replace y.</p>
+<p>It is possible to avoid the introduction of a temporary variable by carrying out simultaneous replacement of x and y, as demonstrated below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="o">+</span><span class="n">y</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="index-ranges">
+<h2><span class="section-number">2.4. </span>index ranges<a class="headerlink" href="#index-ranges" title="Permalink to this heading">#</a></h2>
+<p>We can use a range to refer to the index of elements in a list. For example, we could edit the code that was previously used to sum the elements in a list as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>             <span class="c1">#first define the list</span>
+<span class="n">T</span><span class="o">=</span><span class="mi">0</span>                     <span class="c1">#to record the total</span>
+<span class="n">nmax</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1">#number of elements in list</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>   <span class="c1">#for each index</span>
+  <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>              <span class="c1">#add indexed element to total</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>                <span class="c1">#print the total</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
+</pre></div>
+</div>
+</div>
+</div>
+<div class="exercise admonition" id="files/lists_and_loops-exercise-3">
+
+<p class="admonition-title"><span class="caption-number">Exercise 2.4 </span></p>
+<section id="exercise-content">
+<p>See if you can adapt the code above so that it sums every other element in the list. For the given list <code class="docutils literal notranslate"><span class="pre">x</span></code> the result should be <span class="math notranslate nohighlight">\((3+7)=10\)</span>, but your code should work for any list.</p>
+</section>
+</div>
+<div class="solution dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>There are many ways to achieve the result, but here is a solution that only requires us to adjust the control sequence:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>             <span class="c1">#first define the list</span>
+<span class="n">T</span><span class="o">=</span><span class="mi">0</span>                     <span class="c1">#to record the total</span>
+<span class="n">nmax</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1">#number of elements in list</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nmax</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>   <span class="c1">#for every other index</span>
+  <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>              <span class="c1">#add indexed element to total</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>                <span class="c1">#print the total</span>
+</pre></div>
+</div>
+</div>
+<h4>Advanced example</h4>
+<p>Can you work out what the following code does? What happens if we try to change the range so that it goes up to <code class="docutils literal notranslate"><span class="pre">nmax</span></code> instead of <code class="docutils literal notranslate"><span class="pre">nmax-1</span></code>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">nmax</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+12
+16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="solution dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The code adds together neighbouring pairs of elements in the list. An explanation of various parts of the code is given below:</p>
+<p>There are four elements in the list, so <code class="docutils literal notranslate"><span class="pre">nmax=len(x)</span></code> is equivalent to defining <code class="docutils literal notranslate"><span class="pre">nmax=4</span></code>. Therefore, <code class="docutils literal notranslate"><span class="pre">range(nmax-1)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">range(3)</span></code>, which gives 0,1,2</p>
+<ul class="simple">
+<li><p>Taking <code class="docutils literal notranslate"><span class="pre">n=0</span></code> the result <code class="docutils literal notranslate"><span class="pre">x[0]+x[1]</span></code> adds the first and second list values</p></li>
+<li><p>Taking <code class="docutils literal notranslate"><span class="pre">n=1</span></code> the result <code class="docutils literal notranslate"><span class="pre">x[1]+x[2]</span></code> adds the second and third list values</p></li>
+<li><p>Taking <code class="docutils literal notranslate"><span class="pre">n=2</span></code> the result <code class="docutils literal notranslate"><span class="pre">x[2]+x[3]</span></code> adds the third and fourth list values</p></li>
+</ul>
+<p>If we changed the loop control sequence to <code class="docutils literal notranslate"><span class="pre">range(nmax)</span></code> the code would give an error, because it would include an extra step for <code class="docutils literal notranslate"><span class="pre">n=3</span></code>, which would result in an attempt to fourth and fifth values. As there is no fifth value in list <code class="docutils literal notranslate"><span class="pre">x</span></code> this step would fail.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fundamentals.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Fundamentals</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="arrays_and_plots.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Arrays and plots</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-lists">2.1. Working with lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">2.2. <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-range-function">2.3. The range function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-ranges">2.4. index ranges</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ella Metcalfe
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
