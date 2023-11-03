@@ -38,7 +38,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../_static/_static/mystyle.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystyle.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
@@ -127,7 +127,8 @@ const thebe_selector_output = ".output, .cell_output"
     
     <div class="me-auto navbar-header-items__center">
       
-        <div class="navbar-item"><h1>NSCI0006 assessed exercises</h1></div>
+        <div class="navbar-item"><!-- This will display the version of the docs -->
+<h1>NSCI0006 assessed exercises</h1></div>
       
     </div>
     
@@ -201,7 +202,8 @@ const thebe_selector_output = ".output, .cell_output"
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item"><h1>NSCI0006 assessed exercises</h1></div>
+          <div class="navbar-item"><!-- This will display the version of the docs -->
+<h1>NSCI0006 assessed exercises</h1></div>
         
       </div>
     
@@ -428,7 +430,7 @@ document.write(`
 x = c \hat{x}
 \end{equation*}\]</div>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">measure(c,hatx)</span></code> to calculate the mass concentration and use your function to answer the following questions:</p>
-<p>(a) Given that NaCl has a molar mass of 58.45g/mol, how many grams of NaCl must we weigh out to prepare a solution with concentration 0.15M</p>
+<p>(a) Given that NaCl has a molar mass of 58.45g/mol, how many grams of NaCl must we weigh out to prepare a 10ml solution with concentration 0.15M</p>
 <p>(b) Suppose we have a tissue suspended in 10ml of buffer, and we want to add atropine molar mass 289.37g/mol to achieve a concentration of 1nM. What mass of drug must be added?<br>
 <em>Hint</em> : <span class="math notranslate nohighlight">\(1\text{nM}\)</span> is <span class="math notranslate nohighlight">\(1\times 10^{-9}\text{M}\)</span></p>
 </section>
@@ -444,8 +446,8 @@ w = \frac{c \hat{x}}{\rho}, \qquad r=\frac{c}{\rho - c\hat{x}}
 <p>Assuming that <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(\hat{x}\)</span> are measured in g/L, the result <span class="math notranslate nohighlight">\(r\)</span> should be multiplied by 1000 to obtain a result in the mol/kg.</p>
 </div>
 <p>Write a function <code class="docutils literal notranslate"><span class="pre">w,r</span> <span class="pre">=</span> <span class="pre">measure2(c,hatx,rho)</span></code> to calculate the mass fraction and molality and use your function to answer the following question:</p>
-<p>Given that the molar mass of sucrose is 342.3 g/mol and the density of a 2.555M solution of sucrose is 1.288.7 g/L,</p>
-<p>(a) What is the concentration of sucrose expressed as % (w/w)?</p>
+<p>Given that the molar mass of sucrose is 342.3 g/mol and the density of a 2.555M solution of sucrose is 1288.7 g/L,</p>
+<p>(a) What is the concentration of sucrose expressed as mass fraction % (w/w)?</p>
 <p>(b) What is the concentration expressed as molarity? (mol/kg)</p>
 <div class="readmore admonition">
 <p class="admonition-title">Further info </p>
